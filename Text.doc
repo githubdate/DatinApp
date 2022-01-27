@@ -1,0 +1,83 @@
+------API.csproj:
+    <Nullable>enable</Nullable> in <PropertyGroup>
+        this is not using if it use it shold be contain the nullable vaue for string. and it can be ? symbol for Strig type
+    <ImplicitUsings>enable</ImplicitUsings>
+        it will add the namespace for each functions in the files automatically. If we are doing diasable , we have to add explicityly.
+
+-----Obj-Debug - GlobalUSing File:
+    It is used to add all the namespaces which are using  in this project.
+
+------Properties- LaunchSettings.json:
+    Set the loacalhist value in application url path  :5000 and 5001
+    set launchBrowser - false :
+    In launch url will mention the starting file name- normally  mention as "SWagger"
+
+------Checking the project is in proper way:
+    1. Verify the localhost address:
+        Terminal->new Terminal
+        goto API folder
+         Enter 
+        Type "dotnet run"
+        Enter
+         it will showing the local host address which we mentioned in launchsettings.json file
+    2.To check the https certification is present or not:
+        Type "dotnet dev-certs https --trust" in API folder path .
+        If t presents it will show a msg like "A valid HTTPS certificate is already present."
+    3.To add modifaction in Project.
+        Type "dotnet watch run" in API folder path of terminal and enter.
+     Changes will affected into it
+
+------appsettings.Development file in Properties folder:
+    Type "Microsoft" :"Information"- using for getting the flow of our projet in  console after  run the code in terminal "dotnet run"
+
+------Program.cs class file:
+    CreateHostBuilder() will calling inside the PSVM() method.
+    This method will creating all environmental variable ,rootpath of our project folder etc
+    It will create the startUp.cs file
+
+------startUp.cs class file:
+    it will add controllers , configuratins etc
+
+
+-----------Creating entities:
+
+    1.Creating an entity folder:
+        Right click on API and select new folder and mention name as entities.
+    2. Creating new user entities:
+        It will store the user entities information.
+        Right cick on enttites folder and select the new C# class and type the class  name  as "AppUser"
+        After entering it will create a template  class
+        We have to add properties of the class using the "properties()" functions (default)
+    3. Setting the property access type
+        we are always using as public proeprty  beacuse we are supporting entity framework property later.
+
+-----------Entity framework:
+    
+    It is an Object relational mapper (ORM)
+    That will modify oru cde into sql command and add/modify into DB.
+    For this we have implement a "dbContext" class
+    The "dbContext" class is a intermediate for the domain and DB.
+    Squlite provider will link the domain code into db query
+    Features of entities framework are: 
+            1.Quereing
+            2.Changes tracking
+            3.Saving
+            4.concurrency
+            5.transactions
+            6.catching
+            7.built in conventions
+            8.configuratins
+            9.Migrations
+
+    1 Adding entity framework:
+        install "nuget gallery " from extennsions.
+        Open nuget gallery in search bar of settings and type "microsoft.entity.frameworkCore.Sqlite by micorsoft"
+        select the  APLprosp checkbox near to install button and install
+        after installing  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" /> will include in API.csproj file 
+    2 Creating DB context class
+        create a folder in API folder with name as "Data"
+        Create a class as " DataContext" inside the "Data" folder
+
+
+
+    
